@@ -1,0 +1,44 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#000000"/>
+
+  <!-- CRT Scanlines Effect -->
+  <defs>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M 0 2 L 4 2" stroke="#00FF00" stroke-width="1" stroke-opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#scanlines)"/>
+
+  <!-- Content -->
+  <g font-family="'Courier Prime', 'Courier New', monospace" text-anchor="middle">
+    
+    <!-- ASCII Logo -->
+    <text fill="#FFFF00" font-size="12" style="white-space: pre;" x="600" y="150" text-shadow="0 0 8px #FFFF00">
+      <tspan x="600" dy="-1.2em">   _                   _               _            _                _______     _          _            _                   _                   _             _            _   _       </tspan>
+      <tspan x="600" dy="1.2em">  / /\               /\ \            /\ \         / /\              / ___  /\   /\ \      /\ \       _  /\ \                /\_\               /\ \           /\ \         /\_\/\_\ _   </tspan>
+      <tspan x="600" dy="1.2em"> / /  \             /  \ \          /  \ \       / /  \            / /\__\ \ \ /  \ \    /  \ \     /\_\\ \ \              / / /  _           /  \ \         /  \ \       / / / / //\_\ </tspan>
+      <tspan x="600" dy="1.2em">/_/ /\ \           / /\ \ \        / /\ \ \     / / /\ \          / / /   \_\// /\ \ \  / /\ \ \   / / / \ \ \            / / /  /\_\        / /\ \ \       / /\ \ \     /\ \/ \ \/ / / </tspan>
+      <tspan x="600" dy="1.2em">\_\/\ \ \         / / /\ \ \      / / /\ \ \   / / /\ \ \        / / /       / / /\ \_\/ / /\ \ \ / / /   \ \ \          / / /__/ / /       / / /\ \ \     / / /  \ \_\   /  \____\__/ /  </tspan>
+      <tspan x="600" dy="1.2em">     \ \ \        \/_//_\ \ \     \/_//_\ \ \ /_/ /  \ \ \       \ \ \      / / /_/ / /\/_//_\ \ \\ \ \____\ \ \        / /\_____/ /       / / /  \ \_\   / / /   / / // /\/________/   </tspan>
+      <tspan x="600" dy="1.2em">      \ \ \         __\___ \ \      __\___ \ \\_\/    \ \ \       \ \ \    / / /__\/ /   __\___ \ \\ \________\ \      / /\_______/       / / /    \/_/  / / /   / / // / /\/_// / /    </tspan>
+      <tspan x="600" dy="1.2em">       \ \ \       / /\   \ \ \    / /\   \ \ \        \ \ \       \ \ \  / / /_____/   / /\   \ \ \\/________/\ \    / / /\ \ \         / / /          / / /   / / // / /    / / /     </tspan>
+      <tspan x="600" dy="1.2em">      __\ \ \___  / /_/____\ \ \  / /_/____\ \ \        \ \ \  ____/ / / / / /         / /_/____\ \ \         \ \ \  / / /  \ \ \   _   / / /________  / / /___/ / // / /    / / /      </tspan>
+      <tspan x="600" dy="1.2em">     /___\_\/__/\/__________\ \ \/__________\ \ \        \ \ \/_____/ / / / /         /__________\ \ \         \ \_\/ / /    \ \ \ /\_\/ / /_________\/ / /____\/ / \/_/    / / /       </tspan>
+      <tspan x="600" dy="1.2em">     \_________\/\_____________\/\_____________\/         \_\/\_____\/  \/_/          \_____________\/          \/_/\/_/      \_\_\\/_/\/____________/\/_________/          \/_/        </tspan>
+    </text>
+
+    <!-- Title -->
+    <text x="600" y="380" fill="#00FF00" font-size="60" font-weight="bold" text-shadow="0 0 10px #00FF00">13375p34k Terminal</text>
+
+    <!-- Description -->
+    <text x="600" y="460" fill="#00FF00" font-size="32" text-shadow="0 0 5px #00FF00">
+      <tspan>A retro terminal-themed leetspeak and ASCII art generator.</tspan>
+    </text>
+
+    <!-- Prompt -->
+    <text x="600" y="550" fill="#FFFF00" font-size="28" text-shadow="0 0 5px #FFFF00">
+      C:\&gt; 13375p34k.com
+    </text>
+  </g>
+</svg>
