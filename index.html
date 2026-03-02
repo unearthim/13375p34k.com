@@ -795,7 +795,7 @@
             
             <!-- Header -->
             <div class="text-center mb-6">
-                <h1 class="glitch text-5xl md:text-7xl font-bold mb-2 tracking-tighter" data-text="13375P34K.COM">13375P34K.COM</h1>
+                <h1 class="glitch text-5xl md:text-7xl font-bold mb-2 tracking-tighter" data-text="13375p34k">13375p34k</h1>
                 <p class="text-lg md:text-xl opacity-80 font-mono tracking-widest text-green-400">
                     &lt;DIGITAL_MONUMENT_SYSTEM_ONLINE /&gt;
                 </p>
@@ -876,6 +876,9 @@
                         <button onclick="translateText()" class="hacker-btn w-full sm:w-auto px-8 py-3 text-xl font-bold rounded shadow-[0_0_15px_rgba(0,255,65,0.2)]">
                             <i class="fas fa-code mr-2"></i> EXECUTE_TRANSLATION
                         </button>
+                        <button onclick="glitchLeet()" class="hacker-btn danger-btn w-full sm:w-auto px-8 py-3 text-xl font-bold rounded shadow-[0_0_15px_rgba(255,0,60,0.2)]">
+                            <i class="fas fa-bolt mr-2"></i> LEET_GLITCH
+                        </button>
                         <button onclick="clearAll()" class="hacker-btn w-full sm:w-auto px-6 py-3 text-lg opacity-70 hover:opacity-100">
                             <i class="fas fa-trash-alt mr-2"></i> PURGE
                         </button>
@@ -940,6 +943,16 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Footer Actions ASCII -->
+                    <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center border-t border-green-900 pt-6">
+                        <button onclick="glitchAscii()" class="hacker-btn danger-btn w-full sm:w-auto px-8 py-3 text-xl font-bold rounded shadow-[0_0_15px_rgba(255,0,60,0.2)]">
+                            <i class="fas fa-biohazard mr-2"></i> ASCII_GLITCH
+                        </button>
+                        <button onclick="clearAscii()" class="hacker-btn w-full sm:w-auto px-6 py-3 text-lg opacity-70 hover:opacity-100">
+                            <i class="fas fa-trash-alt mr-2"></i> PURGE
+                        </button>
                     </div>
                 </div>
 
@@ -1578,6 +1591,58 @@
             inputEl.focus();
         }
 
+        // --- GLITCH LOGIC FOR LEET ---
+        function glitchLeet() {
+            const original = inputEl.value;
+            if (!original) return;
+            
+            let words = original.split(' ');
+            let glitched = words.map(word => {
+                let w = word.toLowerCase();
+                
+                // Randomly look up advanced vocab
+                if (leetMaps.advanced.vocabulary[w] && Math.random() > 0.3) {
+                    w = leetMaps.advanced.vocabulary[w];
+                } else {
+                    // Random replacement with ultra-hardcore chars
+                    w = w.split('').map(c => {
+                        const opts = leetMaps.intermediate[c];
+                        if (opts && Math.random() > 0.2) return Array.isArray(opts) ? opts[Math.floor(Math.random()*opts.length)] : opts;
+                        return c;
+                    }).join('');
+                }
+                
+                // sPoNgEbOb case
+                w = w.split('').map(c => Math.random() > 0.5 ? c.toUpperCase() : c.toLowerCase()).join('');
+                
+                // Random character stutter/duplication
+                if (Math.random() > 0.8 && w.length > 0) w += w.slice(-1).repeat(Math.floor(Math.random() * 4) + 1);
+                
+                // Random decorative clan tags / borders
+                if (Math.random() > 0.85) w = `xX_${w}_Xx`;
+                else if (Math.random() > 0.9) w = `[${w}]`;
+                else if (Math.random() > 0.92) w = `<${w}>`;
+                
+                return w;
+            }).join(' ');
+            
+            // Randomly insert noise/dividers between words
+            const noises = ['..', '_', '//', '\\\\', '***', '!!!1!'];
+            glitched = glitched.split(' ').map(w => w + (Math.random() > 0.8 ? noises[Math.floor(Math.random()*noises.length)] : '')).join(' ');
+
+            outputEl.value = glitched;
+            
+            // Visual indicator of glitch
+            statusEl.innerText = "ANOMALY_DETECTED";
+            statusEl.classList.remove('text-green-300', 'animate-pulse');
+            statusEl.classList.add('text-red-500');
+            setTimeout(() => {
+                statusEl.innerText = "ONLINE";
+                statusEl.classList.remove('text-red-500');
+                statusEl.classList.add('text-green-300', 'animate-pulse');
+            }, 800);
+        }
+
         /* --- ASCII ART LOGIC --- */
         const asciiInputText = document.getElementById('asciiInputText');
         const asciiCharSelect = document.getElementById('asciiCharSelect');
@@ -1722,6 +1787,55 @@
             }
             reader.readAsDataURL(file);
         });
+
+        // --- GLITCH LOGIC FOR ASCII ---
+        function glitchAscii() {
+            const currentAscii = asciiOutputText.value;
+            if (!currentAscii || currentAscii === "PROCESSING_IMAGE_STREAM...") return;
+
+            let lines = currentAscii.split('\n');
+            let glitchedLines = lines.map(line => {
+                // Horizontal CRT Tearing (random row shifts)
+                if (Math.random() > 0.85) {
+                    const shift = Math.floor(Math.random() * 8) - 4; // Shift between -4 and +4
+                    if (shift > 0) line = ' '.repeat(shift) + line.slice(0, -shift);
+                    else if (shift < 0) line = line.slice(-shift) + ' '.repeat(-shift);
+                }
+                
+                // Data Corruption (random character replacements)
+                if (Math.random() > 0.7) {
+                    const chars = line.split('');
+                    for (let i = 0; i < chars.length; i++) {
+                        if (chars[i] !== ' ' && Math.random() > 0.8) {
+                            const glitchChars = "@#$%&*!?/\\|{}[]01";
+                            chars[i] = glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                        }
+                    }
+                    line = chars.join('');
+                }
+                
+                return line;
+            });
+            
+            // Vertical Sync Loss (randomly drop or duplicate rows)
+            if (Math.random() > 0.5 && glitchedLines.length > 5) {
+                const dropIdx = Math.floor(Math.random() * glitchedLines.length);
+                glitchedLines.splice(dropIdx, 1);
+            }
+            if (Math.random() > 0.6 && glitchedLines.length < 200) { // Limit growth
+                const dupIdx = Math.floor(Math.random() * glitchedLines.length);
+                glitchedLines.splice(dupIdx, 0, glitchedLines[dupIdx]);
+            }
+
+            asciiOutputText.value = glitchedLines.join('\n');
+        }
+
+        function clearAscii() {
+            asciiInputText.value = "";
+            imageInput.value = "";
+            asciiOutputText.value = "";
+            asciiInputText.focus();
+        }
 
         /* --- UTILS --- */
         function copyToClipboard(elementId) {
