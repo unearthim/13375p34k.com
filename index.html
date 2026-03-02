@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-
       <!-- === 1. Primary Meta Tags === -->
     <title>13375p34k Terminal | Leet & ASCII Generator</title>
     <meta name="title" content="13375p34k Terminal | Leet & ASCII Generator">
@@ -302,7 +301,6 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
-
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -739,6 +737,41 @@
             padding: 1rem;
         }
 
+        /* Terminal Footer Styles */
+        .terminal-footer {
+            background: rgba(0, 20, 0, 0.6);
+            border: 1px solid #004411;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 550px;
+            margin-bottom: 1.5rem;
+            color: #00b32c;
+            line-height: 1.6;
+            border-radius: 2px;
+        }
+        .terminal-footer a {
+            color: var(--terminal-green);
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            transition: all 0.2s ease;
+        }
+        .terminal-footer a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px var(--terminal-green);
+        }
+        .prompt {
+            color: var(--terminal-green);
+            font-weight: bold;
+            margin-right: 0.25rem;
+        }
+        .cursor.blinking {
+            animation: blink 1s step-end infinite;
+            display: inline-block;
+            vertical-align: bottom;
+            margin-left: 4px;
+        }
+
         /* Mobile Adjustments */
         @media (max-width: 640px) {
             .glitch { font-size: 2.5rem; }
@@ -914,7 +947,18 @@
 
             <!-- Footer Info -->
             <div class="mt-12 text-center text-green-800 text-sm font-mono flex flex-col items-center">
-                <p class="mb-4">EST. 2026 | 13375p34k.com | <span class="cursor-blink">_</span></p>
+                
+                <!-- Terminal Footer -->
+                <div class="terminal-footer">
+                    <div class="cursor-line">
+                        <span class="prompt">C:\></span><span class="prompt">
+                        4 <b><a href="https://sentientification.com" target="_blank" rel="noopener noreferrer">l1m1n4l m1nd m3ld</a></b> c0ll4b0r4710n:<br>
+                        <span class="prompt">C:\></span>d16174l m0num3n7 by <b><a href="https://unearth.im" target="_blank" rel="noopener noreferrer">un34r7h.1m</a></b> | <b><a href="https://archaeobytology.org" target="_blank" rel="noopener noreferrer">4rch1v3 & 4nv1l</a></b>
+                        </span>
+                        <span class="cursor blinking">█</span>
+                    </div>
+                </div>
+
                 <button onclick="openModal('paperModal')" class="hacker-btn danger-btn px-4 py-2 text-sm font-bold tracking-widest animate-pulse border-2 border-red-800">
                      ⚠ DO NOT READ ⚠ 
                 </button>
